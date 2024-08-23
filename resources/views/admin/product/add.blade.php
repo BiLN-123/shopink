@@ -1,13 +1,17 @@
-<!-- resources/views/child.blade.php -->
-
-@extends('layouts.admin') <!--kế thừa từ layout admin -->
+{{-- kế thừa từ layout admin --}}
+@extends('layouts.admin')
 
 @section('title')
     <title>Trang Thêm Sản Phẩm</title>
 @endsection
-{{--using select2 CDN, sử dụng select 2 băằng cách lên gg search copy và patse link vào yield css và js--}}
+{{--using select2 CDN, sử dụng select2 băằng cách lên gg search copy và patse link vào yield css và js--}}
+{{--@section('tinyMCE')--}}
+{{--    <base href="http://banhang.ngoc.in:8888/public/admin/create">--}}
+{{--@endsection--}}
+
 @section('css')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet" >
+<link href="{{ asset('AdminLogin/product/add/add.css') }}" rel="stylesheet" >
 @endsection
 
 @section('sidebar')
@@ -17,19 +21,14 @@
 @endsection
 
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         @include('partials.content-header', ['name' => 'Sản Phẩm', 'key' => 'Thêm'])
-        <!-- /.content-header -->
 
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data" >
+        <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data" >
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
 {{--                        do upload ảnh nên sư dụng enctype="multipart/form-data"--}}
                             @csrf
                             <div class="form-group">
@@ -51,7 +50,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Đại Diện Sản Phẩm</label>
                                 <input type="file"
-                                       class="form-control"
+                                       class="form-control-file"
                                        name="future_image_path"
                                 >
                             </div>
@@ -60,7 +59,7 @@
                                 <input type="file"
                                        multiple
    {{--                                multiple để chọn nhiều ảnh--}}
-                                       class="form-control"
+                                       class="form-control-file"
                                        name="image_path[]"
                                 >
                             </div>
@@ -74,38 +73,27 @@
                             <div class="form-group">
                                 <label>Chọn Tags Sản Phẩm</label>
                                 <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
-
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Nội Dung Sản Phẩm</label>
-                                <textarea class="form-control" name="content" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Nội Dung Sản Phẩm</label>
+                            <textarea class="form-control tinymce_editor_init" name="content" rows="8"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content -->
+            </div>
+        </form>
     </div>
-    <!-- /.content-wrapper -->
 @endsection
 
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <script>
-        $(function () {
-            $(".tags_select_choose").select2({
-                tags: true,
-                tokenSeparators: [',', ' ']
-            });
-            $(".select2_init").select2({
-                placeholder: "Chọn Danh Mục",
-                allowClear: true
-            });
-        });
-    </script>
+    <script src="{{ asset('AdminLogin/product/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('AdminLogin/product/add/add.js') }}"></script>
 @endsection

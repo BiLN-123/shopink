@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('home');
 //});
+Route::group(['prefix' => 'filemanager', 'middleware'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
 Route::get('/admin', 'AdminController@loginAdmin');
 
