@@ -47,7 +47,12 @@
                         Menu
                     </p>
                 </a>
-                </li>
+                <a href="{{route('product.index')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        Sản Phẩm
+                    </p>
+                </a>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

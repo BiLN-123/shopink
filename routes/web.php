@@ -94,6 +94,24 @@ Route::prefix('admin')->group(function () {
 
     });
 
+
+//sử dụng prefix để gom nhóm các route của thằng products, sản phẩ
+    Route::prefix('product')->group(function () {
+        Route::get('/', [
+            'as' => 'product.index',
+            'uses' => 'AdminProductController@index'
+        ]);
+    });
+
+    Route::get('/create', [
+        'as' => 'product.create',
+        'uses' => 'AdminProductController@create'
+    ]);
+
+//    Route::post('/store', [
+//        'as' => 'menus.store',
+//        'uses' => 'MenuController@store'
+//    ]);
 });
 
 
