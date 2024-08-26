@@ -45,7 +45,7 @@
 {{--                                    <th scope="row">{{ $adminproduct->id }}</th>--}}
 {{--                                    <td>{{ $adminproduct->name }}</td>--}}
 {{--                                    <td>{{ $adminproduct->price }}</td>--}}
-{{--                                    <td>{{ $adminproduct->future_image_path }}</td>--}}
+{{--                                    <td>{{ $adminproduct->feature_image_path }}</td>--}}
 {{--                                    <td>{{ $adminproduct->categories_id }}</td>--}}
 {{--                                    <td>--}}
 {{--                                        <a href="{{route('categories.edit', ['id' => $adminproduct->id]) }}" class="btn btn-default"> EDIT </a>--}}

@@ -111,10 +111,10 @@ Route::prefix('admin')->group(function () {
         'uses' => 'AdminProductController@create'
     ]);
 
-//    Route::post('/store', [
-//        'as' => 'menus.store',
-//        'uses' => 'MenuController@store'
-//    ]);
+    Route::post('/store', [
+        'as' => 'product.store',
+        'uses' => 'AdminProductController@store'
+    ]);
 });
 
 

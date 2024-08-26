@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Components\Recusive;
 use App\Models\Category;
+use App\Traits\StorageImageTrait;
 use Illuminate\Http\Request;
+
 
 class AdminProductController extends Controller
 {
+    use StorageImageTrait;
     private $category;
     public function __construct(Category $category)
     {
@@ -30,5 +33,9 @@ class AdminProductController extends Controller
         $recusive = new Recusive($data);
         $htmlOption = $recusive->categoryRecuse($parentId);
         return $htmlOption;
+    }
+    public function store(Request $request){
+        $dataUpload = $this->storageTraitUpload($request, 'feature_image_path', 'product');
+        dd($dataUpload);
     }
 }

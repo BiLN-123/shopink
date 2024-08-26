@@ -24,7 +24,7 @@
     <div class="content-wrapper">
         @include('partials.content-header', ['name' => 'Sản Phẩm', 'key' => 'Thêm'])
 
-        <form action="{{route('categories.store')}}" method="post" enctype="multipart/form-data" >
+        <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data" >
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -51,7 +51,7 @@
                                 <label for="exampleInputEmail1">Ảnh Đại Diện Sản Phẩm</label>
                                 <input type="file"
                                        class="form-control-file"
-                                       name="future_image_path"
+                                       name="feature_image_path"
                                 >
                             </div>
                             <div class="form-group">
