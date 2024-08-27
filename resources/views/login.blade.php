@@ -41,7 +41,7 @@
             <div class="login-show form-group" style="margin-top: -13%">
                 <label for="remember-me" class="text-info" style="margin-bottom: 15%">Remember me
                     <span>
-                        <input id="remember-me" name="remember me" type="checkbox">
+                        <input id="remember_me" name="remember me" type="checkbox">
                     </span>
                 </label><br>
                 <input type="submit" name="submit" value="Login">

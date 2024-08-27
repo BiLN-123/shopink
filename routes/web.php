@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TagController;
+
+Route::get('/api/tags', [TagController::class, 'index']);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +20,14 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('home');
 //});
+
+Route::get('/admin','AdminController@loginAdmin');
+
+Route::post('/admin', 'AdminController@postLoginAdmin');
+
 Route::group(['prefix' => 'filemanager', 'middleware'], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
-
-Route::get('/admin', 'AdminController@loginAdmin');
-
-Route::post('/admin', 'AdminController@postLoginAdmin');
 
 Route::get('/home', function () {
     return view('home');

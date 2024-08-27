@@ -1,7 +1,18 @@
 $(function () {
     $(".tags_select_choose").select2({
         tags: true,
-        tokenSeparators: [',', ' ']
+        tokenSeparators: [','],
+        ajax: {
+            url: '/api/tags',
+            dataType: 'json',
+            processResults: function (data) {
+                return {
+                    results: data.map(function (item) {
+                        return { id: item.id, text: item.name };
+                    })
+                };
+            }
+        }
     });
     $(".select2_init").select2({
         placeholder: "Chọn Danh Mục",
