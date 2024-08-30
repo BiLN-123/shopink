@@ -1,5 +1,7 @@
-{{-- kế thừa từ layout admin --}}
-@extends('layouts.admin')
+<!DOCTYPE html>
+
+<html lang="en">
+@extends('layouts.admin') <!--kế thừa từ layout admin -->
 
 @section('title')
     <title>Trang Thêm Sản Phẩm</title>
@@ -8,10 +10,12 @@
 {{--@section('tinyMCE')--}}
 {{--    <base href="http://banhang.ngoc.in:8888/public/admin/create">--}}
 {{--@endsection--}}
-
+<link href="vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
+<script src="vendor/select2/dist/js/select2.min.js"></script>
 @section('css')
-<link href="{{ asset('vendor/select2/select2.min.css') }}" rel="stylesheet" >
-<link href="{{ asset('AdminLogin/product/add/add.css') }}" rel="stylesheet" >
+
+<link href="{{ asset('AdminLogin/product/add/add.css') }}" rel="stylesheet" />
+<link href="{{asset('vendor/select2/select2.min.css')}}" rel="stylesheet" />
 @endsection
 
 @section('sidebar')
@@ -72,7 +76,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Chọn Tags Sản Phẩm</label>
-                                <select name="tags[]" class="form-control tags_select_choose" multiple="multiple">
+                                <select name="tags[]"  class="form-control tags_select_choose" multiple="multiple">
                                 </select>
                             </div>
                         </div>

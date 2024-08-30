@@ -1,19 +1,75 @@
 $(function () {
+    // $(".tags_select_choose").select2({
+    //     tags: true,
+    //     tokenSeparators: [','],
+    //     ajax: {
+    //         url: '/api/tags',
+    //         dataType: 'json',
+    //         delay: 250,
+    //         processResults: function (data) {
+    //             return {
+    //                 results: data.map(function (item) {
+    //                     return { text: item.name };
+    //                 })
+    //             };
+    //         },
+    //         cache: true //Bật bộ nhớ đệm
+    //     },
+    //     minimumInputLength: 1 // Số ký tự tối thiểu để bắt đầu tìm kiếm
+    // });
+
+    // $(".tags_select_choose").each(function(index, element) {
+    //     $(this).select2({
+    //         tags: true,
+    //         width: "100%", // just for stack-snippet to show properly
+    //         ajax: {
+    //             url: '/api/tags',
+    //             dataType: 'json',
+    //             delay: 250,
+    //             data: function (params) {
+    //                 return {
+    //                     q: params.term // search term
+    //                 };
+    //             },
+    //             processResults: function (data) {
+    //                 return {
+    //                     results: data.map(function (item) {
+    //                         return { id: item.id, text: item.name };
+    //                     })
+    //                 };
+    //             },
+    //             cache: true
+    //         },
+    //         minimumInputLength: 1
+    //     });
+    // });
+
+
     $(".tags_select_choose").select2({
         tags: true,
+        allowClear: true,
         tokenSeparators: [','],
         ajax: {
             url: '/api/tags',
             dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term // search term
+                };
+            },
             processResults: function (data) {
                 return {
                     results: data.map(function (item) {
-                        return { id: item.id, text: item.name };
+                        return {id: item.id, text: item.name };
                     })
                 };
-            }
-        }
+            },
+            cache: true
+        },
+        minimumInputLength: 1
     });
+
     $(".select2_init").select2({
         placeholder: "Chọn Danh Mục",
         allowClear: true

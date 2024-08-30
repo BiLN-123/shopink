@@ -40,25 +40,25 @@
                             </thead>
                             <tbody>
 
-{{--                            @foreach ($product as $adminproduct)--}}
-{{--                                <tr>--}}
-{{--                                    <th scope="row">{{ $adminproduct->id }}</th>--}}
-{{--                                    <td>{{ $adminproduct->name }}</td>--}}
-{{--                                    <td>{{ $adminproduct->price }}</td>--}}
-{{--                                    <td>{{ $adminproduct->feature_image_path }}</td>--}}
-{{--                                    <td>{{ $adminproduct->categories_id }}</td>--}}
-{{--                                    <td>--}}
-{{--                                        <a href="{{route('categories.edit', ['id' => $adminproduct->id]) }}" class="btn btn-default"> EDIT </a>--}}
-{{--                                        <a href="{{route('categories.delete', ['id' => $adminproduct->id]) }}" class="btn btn-danger"> DELETE </a>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
+                            @foreach ($products as $adminproduct)
+                                <tr >
+                                    <th scope="row">{{ $adminproduct->id }}</th>
+                                    <td >{{ $adminproduct->name }}</td>
+                                    <td>{{ number_format($adminproduct->price) }} vnđ</td>
+                                    <td> <img src="{{ $adminproduct->feature_image_path }}" alt="" style="width: 150px; height: 150px;object-fit: cover "> </td>
+                                    <td>{{ optional($adminproduct->category)->name }}</td>{{--  //sử dụng optional để tránh lỗi khi không có category thì sẽ trả name về null--}}
+                                    <td>
+                                        <a href="{{route('product.edit', ['id' => $adminproduct->id]) }}" class="btn btn-default"> EDIT </a>
+                                        <a href="{{route('product.delete', ['id' => $adminproduct->id]) }}" class="btn btn-danger"> DELETE </a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
                     </div>
                     <div class="col-md-12">
-{{--                        {{ $categories->links() }}--}}
+                        {{ $products->links() }}
                     </div>
 
                 </div>

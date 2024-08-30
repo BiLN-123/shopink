@@ -5,3 +5,18 @@
 .tox-statusbar__branding {
     display: none !important;
 }
+
+.feature-image {
+    width: 130px;
+    object-fit: cover;
+}
+
+.image-detail-product{
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+}
+
+.image-container {
+    margin-top: 20px;
+}
