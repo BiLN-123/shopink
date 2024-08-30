@@ -14,9 +14,6 @@ class TagController extends Controller
 
         return response()->json($tags);
 
-//        if ($tags->isEmpty() && $tags == '') {
-//            $tags = Tag::all();
-//        }
     }
 
 

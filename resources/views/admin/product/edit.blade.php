@@ -90,7 +90,7 @@
                                 <label>Chọn Tags Sản Phẩm</label>
                                 <select name="tags[]"  class="form-control tags_select_choose" multiple="multiple">
                                     @foreach($product->tags as $tagItem)
-                                        <opttion value="{{$tagItem->id}}" selected>{{$tagItem->name}}</opttion>
+                                        <option value="{{$tagItem->name}}" selected>{{$tagItem->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -102,7 +102,7 @@
                                 <label>Nội Dung Sản Phẩm</label>
                                 <textarea class="form-control tinymce_editor_init"
                                     name="contents"
-                                    rows="8">{{htmlspecialchars($product->content)}}
+                                    rows="8">{{$product->content}}
                                 </textarea>
                             </div>
                         </div>

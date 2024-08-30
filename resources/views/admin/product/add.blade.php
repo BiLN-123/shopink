@@ -76,7 +76,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Chọn Tags Sản Phẩm</label>
-                                <select name="tags[]"  class="form-control tags_select_choose" multiple="multiple">
+                                <select name="tags[]"  class="form-control tags tags_select_choose" multiple="multiple">
                                 </select>
                             </div>
                         </div>

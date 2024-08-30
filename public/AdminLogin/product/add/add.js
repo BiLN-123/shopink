@@ -47,12 +47,11 @@ $(function () {
 
     $(".tags_select_choose").select2({
         tags: true,
-        allowClear: true,
         tokenSeparators: [','],
         ajax: {
             url: '/api/tags',
             dataType: 'json',
-            delay: 250,
+            delay: 150,
             data: function (params) {
                 return {
                     q: params.term // search term
@@ -61,11 +60,22 @@ $(function () {
             processResults: function (data) {
                 return {
                     results: data.map(function (item) {
-                        return {id: item.id, text: item.name };
+                        return {id: item.name, text: item.name };
                     })
                 };
             },
             cache: true
+        },
+        createTag: function (params) {
+            var term = $.trim(params.term);
+            if (term === '') {
+                return null;
+            }
+            return {
+                id: term,
+                text: term,
+                newTag: true // add additional parameters
+            };
         },
         minimumInputLength: 1
     });

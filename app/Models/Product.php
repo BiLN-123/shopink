@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $guarded = [];
 
-    public function images()
+    public function images() //1 sản phẩm có nhiều ảnh
     {
         return $this->hasMany(ProductImage::class, 'product_id');//hasMany là quan hệ 1-n với bảng product_images với khóa ngoại là product_id
     }
