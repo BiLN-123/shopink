@@ -6,10 +6,8 @@
     <title>Trang Product</title>
 @endsection
 
-@section('sidebar')
-    @parent
-
-    <p>This is appended to the master sidebar.</p>
+@section('css')
+    <link href="{{ asset('AdminLogin/product/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -49,7 +47,9 @@
                                     <td>{{ optional($adminproduct->category)->name }}</td>{{--  //sử dụng optional để tránh lỗi khi không có category thì sẽ trả name về null--}}
                                     <td>
                                         <a href="{{route('product.edit', ['id' => $adminproduct->id]) }}" class="btn btn-default"> EDIT </a>
-                                        <a href="{{route('product.delete', ['id' => $adminproduct->id]) }}" class="btn btn-danger"> DELETE </a>
+                                        <a href=""
+                                           data-url="{{route('product.delete', ['id' => $adminproduct->id]) }}"
+                                            class="btn action-delete btn-danger"> DELETE </a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -68,4 +68,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+@endsection
+
+@section('js')
+    <script src="{{ asset('AdminLogin/product/sweet-alert2/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('AdminLogin/product/index/alert.js') }}"></script>
 @endsection

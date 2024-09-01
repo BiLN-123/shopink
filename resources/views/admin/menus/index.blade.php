@@ -6,10 +6,8 @@
     <title>Trang Dashboard</title>
 @endsection
 
-@section('sidebar')
-    @parent
-
-    <p>This is appended to the master sidebar.</p>
+@section('css')
+    <link href="{{ asset('AdminLogin/product/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -43,7 +41,9 @@
                                     <td>{{ $menu->name }}</td>
                                     <td>
                                         <a href="{{route('menus.edit', ['id' => $menu->id]) }}" class="btn btn-default"> EDIT </a>
-                                        <a href="{{route('menus.delete', ['id' => $menu->id]) }}" class="btn btn-danger"> DELETE </a>
+                                        <a href=""
+                                           data-url="{{route('menus.delete', ['id' => $menu->id]) }}"
+                                           class="action-delete btn btn-danger"> DELETE </a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -62,4 +62,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+@endsection
+
+@section('js')
+    <script src="{{ asset('AdminLogin/product/sweet-alert2/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('AdminLogin/product/index/alert.js') }}"></script>
 @endsection

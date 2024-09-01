@@ -9,6 +9,7 @@ use App\Models\ProductImage;
 use App\Models\ProductTag;
 use App\Models\Tag;
 use App\Traits\StorageImageTrait;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -199,8 +200,24 @@ class AdminProductController extends Controller
     }
     public function delete($id)
     {
-        $this->product->find($id)->delete();
-        return redirect()->route('product.index');
+//        $this->product->find($id)->delete();
+//        return redirect()->route('product.index');
+        try{
+            $this->product->find($id)->delete();
+            return response()->json([
+                    'code' => 200,
+                    'message' => 'success',
+
+                ], status: 200);
+        }
+        catch(\Exception $exception){
+            Log::error('Message: ' . $exception->getMessage() . '   ................Line' . $exception->getLine());
+            return response()->json([
+                'code' => 500,
+                'message' => 'fail',
+
+            ], status: 500);
+        }
     }
 
 }

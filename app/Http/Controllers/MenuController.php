@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
     use App\Models\Menu;
     use App\Components\MenuRecusive;
-    use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
     class MenuController extends Controller
     {
@@ -58,7 +59,21 @@ use Illuminate\Http\Request;
     }
 
     public function delete($id){
+//            $this->menu->find($id)->delete();
+//            return redirect()->route('menus.index');
+        try{
             $this->menu->find($id)->delete();
-            return redirect()->route('menus.index');
+            return response()->json([
+                'code' => 200,
+                'message' => 'success',
+            ], status: 200);
+        }
+        catch (\Exception $exception){
+            Log::error('Message: ' . $exception->getMessage() . '   ................Line' . $exception->getLine());
+            return response()->json([
+                'code' => 500,
+                'message' => 'fail',
+            ], status: 500);
+        }
     }
 }
