@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Components\Recusive;
+use App\Http\Requests\ProductAddRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
@@ -50,7 +51,7 @@ class AdminProductController extends Controller
         $htmlOption = $recusive->categoryRecuse($parentId);
         return $htmlOption;
     }
-    public function store(Request $request){
+    public function store(ProductAddRequest $request){
 
 
         try{

@@ -28,6 +28,17 @@
     <div class="content-wrapper">
         @include('partials.content-header', ['name' => 'Sản Phẩm', 'key' => 'Thêm'])
 
+{{--        <div class="col-md-12">--}}
+{{--            @if ($errors->any())--}}
+{{--                <div class="alert alert-danger">--}}
+{{--                    <ul>--}}
+{{--                        @foreach ($errors->all() as $error)--}}
+{{--                            <li>{{ $error }}</li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--        </div>--}}
         <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data" >
             <div class="content">
                 <div class="container-fluid">
@@ -42,6 +53,9 @@
                                        name="name"
                                        placeholder="Nhập vào tên sản phẩm"
                                 >
+                                @if($errors->has('name'))
+                                    <p class="text-danger">{{ $errors->first('name') }}</p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá Sản Phẩm</label>
@@ -50,6 +64,9 @@
                                        name="price"
                                        placeholder="Nhập vào giá sản phẩm"
                                 >
+                                @if($errors->has('price'))
+                                    <p class="text-danger">{{ $errors->first('price') }}</p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Đại Diện Sản Phẩm</label>
@@ -73,6 +90,9 @@
                                     <option value="">Chọn Danh Mục</option>
                                     {!! $htmlOption !!}
                                 </select>
+                                @if($errors->has('price'))
+                                    <p class="text-danger">{{ $errors->first('category_id') }}</p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label>Chọn Tags Sản Phẩm</label>
@@ -86,6 +106,9 @@
                             <label>Nội Dung Sản Phẩm</label>
                             <textarea class="form-control tinymce_editor_init" name="contents" rows="8"></textarea>
                         </div>
+                        @if($errors->has('contents'))
+                            <p class="text-danger">{{ $errors->first('contents') }}</p>
+                        @endif
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
