@@ -13,6 +13,8 @@
     {{--    @yield('tinyMCE')--}}
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
     {{-- <!-- Theme style --> --}}
+    <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/dropdown.css')}}">
+
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
     @yield('css')            {{-- <!--sử dụng yield để chèn nội dung vào layout--> --}}
 </head>
@@ -40,6 +42,8 @@
 <script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 {{-- <!-- AdminLTE App --> --}}
 <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js') }}"></script>
+{{--dropdown--}}
+<script src="{{asset('AdminLTE/dist/dropdown.js')}}"></script>
 @yield('js'){{--  <!--sử dụng yield để chèn nội dung vào layout--> --}}
 </body>
 </html>

@@ -17,6 +17,11 @@
     @include('partials.content-header', ['name' => 'Danh Mục', 'key' => 'Danh Sách'])
     <!-- /.content-header -->
 
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">

@@ -98,14 +98,7 @@ class AdminProductController extends Controller
 //            Insert tags for product----------------------
             if(!empty($request->tags)){
                 foreach ($request->tags as $tagItem){
-                    $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]); //Tag::firstOrCreate, sử dụng firstOrCreate để kiểm tra xem tag đã tồn tại chưa, nếu chưa thì tạo mới còn đã tồn tại thì thêm vào không khả dụng
-//Sử dụng phương thức firstOrCreate của Eloquent để tìm kiếm tag với tên tương ứng trong cơ sở dữ liệu.
-//Nếu tag đã tồn tại, phương thức này sẽ trả về instance của tag đó.
-//Nếu tag không tồn tại, phương thức này sẽ tạo một tag mới với tên tương ứng và trả về instance của tag mới tạo.
-//            $this->productTag->create([ //ProductTag::create
-//                'product_id' => $product->id,
-//                'tag_id' => $tagInstance->id
-//            ]);
+                    $tagInstance = $this->tag->firstOrCreate(['name' => $tagItem]);
                     $tagIds[] = $tagInstance->id;
                 }
             }
@@ -125,7 +118,7 @@ class AdminProductController extends Controller
 //            $product->tags()->attach($tagIds);
 
             DB::commit();
-            return redirect()->route('product.index');
+            return redirect()->route('product.index')->with('success', 'Thêm mới sản phẩm thành công');
         }
         catch(\Exception $exception)
         {
@@ -191,7 +184,7 @@ class AdminProductController extends Controller
             $product->tags()->sync($tagIds);
 
             DB::commit();
-            return redirect()->route('product.index');
+            return redirect()->route('product.index')->with('success', 'Cập nhật sản phẩm thành công');
         }
         catch(\Exception $exception)
         {

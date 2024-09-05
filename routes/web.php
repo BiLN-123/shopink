@@ -37,36 +37,37 @@ Route::get('/home', function () {
 Route::prefix('admin')->group(function () {
 
     //sử dụng prefix để gom nhóm các route của thằng categories
-    Route::prefix('categories')->group(function () {
-        Route::get('/', [
-            'as' => 'categories.index',
-            'uses' => 'CategoryController@index'
-        ]);
 
-        Route::get('/create', [
-            'as' => 'categories.create',
-            'uses' => 'CategoryController@create'
-        ]);
-        Route::post('/store', [
-            'as' => 'categories.store',
-            'uses' => 'CategoryController@store'
-        ]);
-
-        Route::get('/edit/{id}', [
-            'as' => 'categories.edit',
-            'uses' => 'CategoryController@edit'
-        ]);
-
-        Route::post('/update/{id}', [
-            'as' => 'categories.update',
-            'uses' => 'CategoryController@update'
-        ]);
-
-        Route::get('/delete/{id}', [
-            'as' => 'categories.delete',
-            'uses' => 'CategoryController@delete'
-        ]);
-    });
+//    Route::prefix('categories')->group(function () {
+//        Route::get('/', [
+//            'as' => 'categories.index',
+//            'uses' => 'CategoryController@index'
+//        ]);
+//
+//        Route::get('/create', [
+//            'as' => 'categories.create',
+//            'uses' => 'CategoryController@create'
+//        ]);
+//        Route::post('/store', [
+//            'as' => 'categories.store',
+//            'uses' => 'CategoryController@store'
+//        ]);
+//
+//        Route::get('/edit/{id}', [
+//            'as' => 'categories.edit',
+//            'uses' => 'CategoryController@edit'
+//        ]);
+//
+//        Route::post('/update/{id}', [
+//            'as' => 'categories.update',
+//            'uses' => 'CategoryController@update'
+//        ]);
+//
+//        Route::get('/delete/{id}', [
+//            'as' => 'categories.delete',
+//            'uses' => 'CategoryController@delete'
+//        ]);
+//    });
 
 //sử dụng prefix để gom nhóm các route của thằng menus
     Route::prefix('menus')->group(function () {
@@ -103,7 +104,8 @@ Route::prefix('admin')->group(function () {
     });
 
 
-//sử dụng prefix để gom nhóm các route của thằng products, sản phẩ
+//sử dụng prefix để gom nhóm các route của thằng products, sản phẩm
+
 //    Route::prefix('product')->group(function () {
 //        Route::get('/', [
 //            'as' => 'product.index',
@@ -138,6 +140,39 @@ Route::prefix('admin')->group(function () {
 
 Route::group(['middleware' => ['web']], function () {
     Route::prefix('admin')->group(function () {
+
+        Route::prefix('categories')->group(function () {
+            Route::get('/', [
+                'as' => 'categories.index',
+                'uses' => 'CategoryController@index'
+            ]);
+
+            Route::get('/create', [
+                'as' => 'categories.create',
+                'uses' => 'CategoryController@create'
+            ]);
+            Route::post('/store', [
+                'as' => 'categories.store',
+                'uses' => 'CategoryController@store'
+            ]);
+
+            Route::get('/edit/{id}', [
+                'as' => 'categories.edit',
+                'uses' => 'CategoryController@edit'
+            ]);
+
+            Route::post('/update/{id}', [
+                'as' => 'categories.update',
+                'uses' => 'CategoryController@update'
+            ]);
+
+            Route::get('/delete/{id}', [
+                'as' => 'categories.delete',
+                'uses' => 'CategoryController@delete'
+            ]);
+        });
+
+
         Route::prefix('product')->group(function () {
             Route::get('/', [
                 'as' => 'product.index',

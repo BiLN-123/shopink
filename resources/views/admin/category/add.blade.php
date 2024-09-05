@@ -12,6 +12,9 @@
     <p>This is appended to the master sidebar.</p>
 @endsection
 
+@section('css')
+    <link href="{{ asset('AdminLogin/product/add/add.css') }}" rel="stylesheet" />
+@endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -29,10 +32,13 @@
                            <div class="form-group">
                                <label for="exampleInputEmail1">Tên Danh Mục</label>
                                <input type="text"
-                                      class="form-control"
+                                      class="form-control @error('name') is-invalid @enderror"
                                       name="name"
                                       placeholder="Nhập vào tên danh mục"
                                >
+                               @if($errors->has('name'))
+                                      <p class="alert-danger alert alert-danger-alert">{{ $errors->first('name') }}</p>
+                               @endif
                            </div>
                            <div class="form-group">
                                <label >Chọn Danh Mục</label>

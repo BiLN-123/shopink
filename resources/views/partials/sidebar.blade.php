@@ -53,6 +53,12 @@
                         Sản Phẩm
                     </p>
                 </a>
+                <div class="item"><a class="sub-btn"><i class="fas fa-table"></i>San Pham<i class="fas fa-angle-right dropdown"></i></a>
+                    <div class="sub-menu">
+                        <a href="#"><div class="sub-item">Subitem1</div></a>
+                        <a href="#"><div class="sub-item">Subitem1</div></a>
+                    </div>
+                </div>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

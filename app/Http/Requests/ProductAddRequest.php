@@ -26,6 +26,7 @@ class ProductAddRequest extends FormRequest
             'name' => 'bail|required|max:255|min:10', //name ở đây phải dùng tên bảng trong db, bail: Dừng kiểm tra nếu có lỗi thì nó sẽ k kiểm tra tiếp
             'price' => 'required|numeric', // numeric: Kiểm tra xem giá có phải là số không
             'category_id' => 'required',
+            'tags' => 'required',
             'contents' => 'required',
         ];
     }
@@ -37,6 +38,7 @@ class ProductAddRequest extends FormRequest
             'name.min' => 'Tên sản phẩm không được dưới 10 ký tự',
             'price.required' => 'Giá sản phẩm không được để trống',
             'price.numeric' => 'Giá sản phẩm phải là số',
+            'tags.required' => 'Tag sản phẩm không được để trống',
             'category_id.required' => 'Danh mục sản phẩm không được để trống',
             'contents.required' => 'Nội dung sản phẩm không được để trống',
         ];

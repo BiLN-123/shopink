@@ -49,23 +49,23 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên Sản Phẩm</label>
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('name') is-invalid @enderror"
                                        name="name"
                                        placeholder="Nhập vào tên sản phẩm"
                                 >
                                 @if($errors->has('name'))
-                                    <p class="text-danger">{{ $errors->first('name') }}</p>
+                                    <p class="alert-danger alert alert-danger-alert"><i class="bi bi-exclamation-triangle"></i>{{ $errors->first('name') }}</p>
                                 @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Giá Sản Phẩm</label>
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('price') is-invalid @enderror"
                                        name="price"
                                        placeholder="Nhập vào giá sản phẩm"
                                 >
                                 @if($errors->has('price'))
-                                    <p class="text-danger">{{ $errors->first('price') }}</p>
+                                    <p class="alert-danger alert">{{ $errors->first('price') }}</p>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -86,28 +86,31 @@
                             </div>
                             <div class="form-group">
                                 <label >Chọn Danh Mục</label>
-                                <select class="form-control select2_init" name="category_id">
+                                <select class="form-control select2_init @error('category_id') is-invalid @enderror" name="category_id">
                                     <option value="">Chọn Danh Mục</option>
                                     {!! $htmlOption !!}
                                 </select>
-                                @if($errors->has('price'))
-                                    <p class="text-danger">{{ $errors->first('category_id') }}</p>
+                                @if($errors->has('category_id'))
+                                    <p class="alert-danger alert">{{ $errors->first('category_id') }}</p>
                                 @endif
                             </div>
                             <div class="form-group">
                                 <label>Chọn Tags Sản Phẩm</label>
-                                <select name="tags[]"  class="form-control tags tags_select_choose" multiple="multiple">
+                                <select name="tags[]"  class="form-control tags tags_select_choose @error('tags') is-invalid @enderror" multiple="multiple">
                                 </select>
+                                @if($errors->has('tags'))
+                                    <p class="alert-danger alert">{{ $errors->first('tags') }}</p>
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Nội Dung Sản Phẩm</label>
-                            <textarea class="form-control tinymce_editor_init" name="contents" rows="8"></textarea>
+                            <textarea class="form-control tinymce_editor_init @error('contents') is-invalid @enderror" name="contents" rows="8"></textarea>
                         </div>
                         @if($errors->has('contents'))
-                            <p class="text-danger">{{ $errors->first('contents') }}</p>
+                            <p class="alert-danger alert">{{ $errors->first('contents') }}</p>
                         @endif
                     </div>
                     <div class="col-md-12">

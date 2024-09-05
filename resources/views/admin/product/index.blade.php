@@ -16,7 +16,11 @@
         <!-- Content Header (Page header) -->
         @include('partials.content-header', ['name' => 'Sản Phẩm', 'key' => 'Danh Sách'])
         <!-- /.content-header -->
-
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">

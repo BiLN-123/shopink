@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryAddRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Components\Recusive;
@@ -34,14 +35,14 @@ class CategoryController extends Controller
         return view('admin.category.index', compact('categories')); // sử dụng compact để truyền dữ liệu từ controller sang view
     }
 
-    public function store(Request $request) //Hàm này dùng để lưu dữ liệu vào db
+    public function store(CategoryAddRequest $request) //Hàm này dùng để lưu dữ liệu vào db
     {
         $this->category->create([
            'name' => $request->name,
            'parent_id' => $request->parent_id,
             'slug' => Str::slug($request->name),
         ]);
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Thêm mới danh mục thành công');
     }
 
     public function edit($id) //Hàm này dùng để lấy dữ liệu từ db và trả về view form sửa
@@ -59,7 +60,7 @@ class CategoryController extends Controller
              'slug' => Str::slug($request->name),
              ]
         );
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Cập nhật danh mục thành công');
     }
 
     public function delete($id) //Hàm này dùng để xóa dữ liệu
