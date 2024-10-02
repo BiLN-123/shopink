@@ -202,7 +202,26 @@ Route::group(['middleware' => ['web']], function () {
                 'uses' => 'AdminProductController@delete'
             ]);
         });
+
+
+
+//        Route::prefix('rooms')->group(function () {
+//            Route::get('/', [
+//                'as' => 'rooms.index',
+//                'uses' => 'RoomsController@index'
+//            ]);
+//
+//            Route::get('/create', [
+//                'as' => 'rooms.create',
+//                'uses' => 'RoomsController@create'
+//            ]);
+//            Route::post('/store', [
+//                'as' => 'rooms.store',
+//                'uses' => 'RoomsController@store'
+//            ]);
+//        });
     });
+
 });
 
 

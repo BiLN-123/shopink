@@ -7903,7 +7903,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             if (doc.styleSheets.length < 31) {
                 doc.createStyleSheet().addRule(".rvml", "behavior:url(#default#VML)");
             } else {
-                // no more room, add to the existing one
+                // no more rooms, add to the existing one
                 // http://msdn.microsoft.com/en-us/library/ms531194%28VS.85%29.aspx
                 doc.styleSheets[0].addRule(".rvml", "behavior:url(#default#VML)");
             }

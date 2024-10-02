@@ -51,6 +51,7 @@
                                 <input type="text"
                                        class="form-control @error('name') is-invalid @enderror"
                                        name="name"
+                                       value="{{ old('name') }}"
                                        placeholder="Nhập vào tên sản phẩm"
                                 >
                                 @if($errors->has('name'))
@@ -62,6 +63,7 @@
                                 <input type="text"
                                        class="form-control @error('price') is-invalid @enderror"
                                        name="price"
+                                       value="{{ old('price') }}"
                                        placeholder="Nhập vào giá sản phẩm"
                                 >
                                 @if($errors->has('price'))
@@ -107,7 +109,9 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Nội Dung Sản Phẩm</label>
-                            <textarea class="form-control tinymce_editor_init @error('contents') is-invalid @enderror" name="contents" rows="8"></textarea>
+                            <textarea class="form-control tinymce_editor_init @error('contents') is-invalid @enderror" name="contents" rows="8">
+                                {{ old('contents') }}
+                            </textarea>
                         </div>
                         @if($errors->has('contents'))
                             <p class="alert-danger alert">{{ $errors->first('contents') }}</p>

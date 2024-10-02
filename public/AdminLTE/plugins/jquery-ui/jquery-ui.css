@@ -189,7 +189,7 @@
 	text-decoration: none;
 }
 
-/* to make room for the icon, a width needs to be set here */
+/* to make rooms for the icon, a width needs to be set here */
 .ui-button-icon-only {
 	width: 2em;
 	box-sizing: border-box;
