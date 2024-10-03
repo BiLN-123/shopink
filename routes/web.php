@@ -220,6 +220,26 @@ Route::group(['middleware' => ['web']], function () {
 //                'uses' => 'RoomsController@store'
 //            ]);
 //        });
+
+
+        Route::prefix('slider')->group(function () {
+            Route::get('/', [
+                'as' => 'slider.index',
+                'uses' => 'SliderAdminController@index'
+            ]);
+            Route::get('/create', [
+                'as' => 'slider.create',
+                'uses' => 'SliderAdminController@create'
+            ]);
+//            Route::post('/store', [
+//                'as' => 'slider.store',
+//                'uses' => 'SliderAdminController@store'
+//            ]);
+            Route::post('/store', [
+                'as' => 'slider.store',
+                'uses' => 'SliderAdminController@store'
+            ]);
+        });
     });
 
 });

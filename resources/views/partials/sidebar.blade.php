@@ -53,10 +53,20 @@
                         Sản Phẩm
                     </p>
                 </a>
-                <div class="item"><a class="sub-btn"><i class="fas fa-table"></i>San Pham<i class="fas fa-angle-right dropdown"></i></a>
+
+                <div class="item nav-link"><a class="sub-btn pe-auto"><i class="nav-icon fas fa-th"></i> Sản Phẩm <i class="fas fa-angle-right dropdown"></i></a>
                     <div class="sub-menu">
-                        <a href="#"><div class="sub-item">Subitem1</div></a>
-                        <a href="#"><div class="sub-item">Subitem1</div></a>
+                        <a href="{{route('product.index')}}" class="nav-link">
+                            <div class="sub-item">Sản Phẩm</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item nav-link"><a class="sub-btn pe-auto"><i class="nav-icon fas fa-th"></i> Thiết Lập <i class="fas fa-angle-right dropdown"></i></a>
+                    <div class="sub-menu">
+                        <a href="{{route('slider.index')}}" class="nav-link">
+                            <div class="sub-item">Slider</div>
+                        </a>
                     </div>
                 </div>
             </ul>

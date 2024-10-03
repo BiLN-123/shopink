@@ -55,7 +55,7 @@
                                        placeholder="Nhập vào tên sản phẩm"
                                 >
                                 @if($errors->has('name'))
-                                    <p class="alert-danger alert alert-danger-alert"><i class="bi bi-exclamation-triangle"></i>{{ $errors->first('name') }}</p>
+                                    <p class="alert-danger alert alert-danger-alert">{{ $errors->first('name') }}</p>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -73,9 +73,12 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Đại Diện Sản Phẩm</label>
                                 <input type="file"
-                                       class="form-control-file"
+                                       class="form-control-file @error('feature_image_path') is-invalid @enderror"
                                        name="feature_image_path"
                                 >
+                                @if(($errors->has('feature_image_path')))
+                                    <p class="alert-danger alert">{{ $errors->first('feature_image_path') }}</p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ảnh Sản Phẩm</label>

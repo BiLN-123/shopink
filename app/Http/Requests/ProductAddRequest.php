@@ -25,6 +25,7 @@ class ProductAddRequest extends FormRequest
         return [
             'name' => 'bail|required|max:255|min:10', //name ở đây phải dùng tên bảng trong db, bail: Dừng kiểm tra nếu có lỗi thì nó sẽ k kiểm tra tiếp
             'price' => 'required|numeric', // numeric: Kiểm tra xem giá có phải là số không
+            'feature_image_path' => 'required|image|mimes:jpeg,png,jpg|max:4096', //mimes: Kiểm tra định dạng ảnh, max: Kiểm tra dung lượng ảnh
             'category_id' => 'required',
             'tags' => 'required',
             'contents' => 'required',
@@ -38,6 +39,8 @@ class ProductAddRequest extends FormRequest
             'name.min' => 'Tên sản phẩm không được dưới 10 ký tự',
             'price.required' => 'Giá sản phẩm không được để trống',
             'price.numeric' => 'Giá sản phẩm phải là số',
+            'feature_image_path.required' => 'Vui lòng thêm ảnh đại diện sản phẩm',
+            'feature_image_path.image' => 'Ảnh đại diện không đúng định dạng hoặc dung lượng lớn hơn 4MB',
             'tags.required' => 'Tag sản phẩm không được để trống',
             'category_id.required' => 'Danh mục sản phẩm không được để trống',
             'contents.required' => 'Nội dung sản phẩm không được để trống',
