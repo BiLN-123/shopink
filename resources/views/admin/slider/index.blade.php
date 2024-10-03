@@ -36,24 +36,27 @@
                             </thead>
                             <tbody>
 
-                            {{--                            @foreach ($menus as $menu)--}}
-                            {{--                                <tr>--}}
-                            {{--                                    <th scope="row">{{ $menu->id }}</th>--}}
-                            {{--                                    <td>{{ $menu->name }}</td>--}}
-                            {{--                                    <td>--}}
-                            {{--                                        <a href="{{route('menus.edit', ['id' => $menu->id]) }}" class="btn btn-default"> EDIT </a>--}}
-                            {{--                                        <a href=""--}}
-                            {{--                                           data-url="{{route('menus.delete', ['id' => $menu->id]) }}"--}}
-                            {{--                                           class="action-delete btn btn-danger"> DELETE </a>--}}
-                            {{--                                    </td>--}}
-                            {{--                                </tr>--}}
-                            {{--                            @endforeach--}}
+                                @foreach ($sliders as $slider)
+                                    <tr>
+                                        <th scope="row">{{ $slider->id }}</th>
+                                        <td>{{ $slider->description }}</td>
+                                        <td>
+                                            <img src="{{ $slider->image_path }}" alt="" style="width: 150px; height: 150px;object-fit: cover ">
+                                        </td>
+                                        <td>
+                                            <a href="{{--{{route('menus.edit', ['id' => $menu->id]) }}--}}" class="btn btn-default"> EDIT </a>
+                                            <a href=""
+                                               data-url="{{--{{route('menus.delete', ['id' => $menu->id]) }}--}}"
+                                               class="action-delete btn btn-danger"> DELETE </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
                             </tbody>
                         </table>
                     </div>
                     <div class="col-md-12">
-                        {{--                        {{ $menus->links() }}--}}
+                        {{ $sliders->links() }}
                     </div>
 
                 </div>
