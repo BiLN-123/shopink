@@ -16,7 +16,11 @@
         <!-- Content Header (Page header) -->
         @include('partials.content-header', ['name' => 'Slider', 'key' => 'Danh Sách'])
         <!-- /.content-header -->
-
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
@@ -44,9 +48,9 @@
                                             <img src="{{ $slider->image_path }}" alt="" style="width: 150px; height: 150px;object-fit: cover ">
                                         </td>
                                         <td>
-                                            <a href="{{--{{route('menus.edit', ['id' => $menu->id]) }}--}}" class="btn btn-default"> EDIT </a>
+                                            <a href="{{route('slider.edit', ['id' => $slider->id]) }}" class="btn btn-default"> EDIT </a>
                                             <a href=""
-                                               data-url="{{--{{route('menus.delete', ['id' => $menu->id]) }}--}}"
+                                               data-url="{{route('slider.delete', ['id' => $slider->id]) }}"
                                                class="action-delete btn btn-danger"> DELETE </a>
                                         </td>
                                     </tr>
