@@ -252,6 +252,25 @@ Route::group(['middleware' => ['web']], function () {
                 'uses' => 'SliderAdminController@delete'
             ]);
         });
+
+
+
+        //setting
+        Route::prefix('settings')->group(function () {
+            Route::get('/', [
+                'as' => 'settings.index',
+                'uses' => 'SettingAdminController@index'
+            ]);
+            Route::get('/create', [
+                'as' => 'settings.create',
+                'uses' => 'SettingAdminController@create'
+            ]);
+            Route::post('/store', [
+                'as' => 'settings.store',
+                'uses' => 'SettingAdminController@store'
+            ]);
+        });
+
     });
 
 });

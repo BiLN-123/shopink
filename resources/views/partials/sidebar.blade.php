@@ -67,6 +67,9 @@
                         <a href="{{route('slider.index')}}" class="nav-link">
                             <div class="sub-item">Slider</div>
                         </a>
+                        <a href="{{route('settings.index')}}" class="nav-link">
+                            <div class="sub-item">Cài đặt</div>
+                        </a>
                     </div>
                 </div>
             </ul>
