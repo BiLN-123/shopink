@@ -40,17 +40,32 @@
 {{--                                    <p class="alert-danger alert alert-danger-alert">{{ $errors->first('name') }}</p>--}}
 {{--                                @endif--}}
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Giá Trị Cài Đặt</label>
-                                <input type="text"
-                                       class="form-control @error('config_value') is-invalid @enderror"
-                                       name="config_value"
-                                       placeholder="Nhập vào Config Value"
-                                >
-                                {{--                                @if($errors->has('name'))--}}
-                                {{--                                    <p class="alert-danger alert alert-danger-alert">{{ $errors->first('name') }}</p>--}}
-                                {{--                                @endif--}}
-                            </div>
+
+                            @if(request()->type === 'text')
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Giá Trị Cài Đặt</label>
+                                    <input type="text"
+                                           class="form-control @error('config_value') is-invalid @enderror"
+                                           name="config_value"
+                                           placeholder="Nhập vào Config Value"
+                                    >
+                                    {{--                                @if($errors->has('name'))--}}
+                                    {{--                                    <p class="alert-danger alert alert-danger-alert">{{ $errors->first('name') }}</p>--}}
+                                    {{--                                @endif--}}
+                                </div>
+                            @elseif(request()->type ==='textarea')
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Giá Trị Cài Đặt</label>
+                                    <textarea rows="5"
+                                           class="form-control @error('config_value') is-invalid @enderror"
+                                           name="config_value"
+                                           placeholder="Nhập vào Config Value"
+                                    ></textarea>
+                                    {{--                                @if($errors->has('name'))--}}
+                                    {{--                                    <p class="alert-danger alert alert-danger-alert">{{ $errors->first('name') }}</p>--}}
+                                    {{--                                @endif--}}
+                                </div>
+                            @endif
 {{--                            <div class="form-group">--}}
 {{--                                <label >Chọn Danh Mục</label>--}}
 {{--                                <select class="form-control" name="parent_id">--}}

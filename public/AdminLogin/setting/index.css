@@ -1,0 +1,9 @@
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    text: white !important;
+}
+a.dropdown-item:focus, .dropdown-item:hover {
+    color: blue !important;
+}
